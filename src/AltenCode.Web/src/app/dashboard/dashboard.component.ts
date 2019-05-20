@@ -38,10 +38,9 @@ export class DashboardComponent implements OnInit {
     this.initCustomers();
     this.initVehicles();
 
-    this.subscription = timer(0, 10000).pipe(
-      switchMap(() => this.dashboardService.changeVehicleStatus())
-    ).subscribe(result => this.initVehicles());
-
+    this.subscription = timer(0, 10000)
+      .pipe(switchMap(() => this.dashboardService.changeVehicleStatus()))
+      .subscribe(result => this.initVehicles());
   }
 
   initCustomers() {
@@ -58,5 +57,15 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  searchVehicles() {}
+  searchVehicles() {
+    const customer = this.form.controls["customer"].value;
+    const status = this.form.controls["status"].value;
+
+    this.dashboardService
+      .searchVehicles(customer, status)
+      .subscribe(response => {
+        this.vehicles = response;
+        console.log(response);
+      });
+  }
 }
