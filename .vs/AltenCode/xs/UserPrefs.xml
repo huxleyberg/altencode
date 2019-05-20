@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{77903BD7-CAE6-4E13-8815-2ABB126A9B56}|Default">
   <MonoDevelop.Ide.ItemProperties.AltenCode.Api PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="src/AltenCode.Api/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/AltenCode.Api/Dockerfile">
     <Files>
       <File FileName="src/AltenCode.Services.Vehicles/Repositories/VehicleRepository.cs" Line="1" Column="1" />
       <File FileName="src/AltenCode.Services.Vehicles/Domain/Repositories/ICustomerRepository.cs" Line="1" Column="1" />
       <File FileName="src/AltenCode.Services.Vehicles/Domain/Repositories/IVehicleRepository.cs" Line="1" Column="1" />
       <File FileName="src/AltenCode.Services.Vehicles/Repositories/CustomerRepository.cs" Line="1" Column="1" />
-      <File FileName="tests/AltenCode.Api.Tests/Unit/Controllers/HomeControllerTests.cs" Line="21" Column="43" />
+      <File FileName="tests/AltenCode.Api.Tests/Unit/Controllers/HomeControllerTests.cs" Line="1" Column="1" />
       <File FileName="tests/AltenCode.Api.Tests/AltenCode.Api.Tests.csproj" Line="22" Column="90" />
-      <File FileName="src/AltenCode.Api/AltenCode.Api.csproj" Line="10" Column="64" />
-      <File FileName="src/AltenCode.Api/Controllers/VehiclesController.cs" Line="26" Column="33" />
-      <File FileName="src/AltenCode.Api/Controllers/HomeController.cs" Line="9" Column="75" />
-      <File FileName="tests/AltenCode.Services.Vehicles.Tests/Integration/Controllers/HomeControllerTests.cs" Line="31" Column="91" />
-      <File FileName="src/AltenCode.Services.Vehicles/Controllers/HomeController.cs" Line="9" Column="93" />
-      <File FileName="tests/AltenCode.Services.Vehicles.Tests/Unit/Services/VehicleServiceTests.cs" Line="27" Column="69" />
+      <File FileName="src/AltenCode.Api/AltenCode.Api.csproj" Line="1" Column="1" />
+      <File FileName="src/AltenCode.Api/Controllers/VehiclesController.cs" Line="1" Column="1" />
+      <File FileName="src/AltenCode.Api/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="tests/AltenCode.Services.Vehicles.Tests/Integration/Controllers/HomeControllerTests.cs" Line="1" Column="1" />
+      <File FileName="src/AltenCode.Services.Vehicles/Controllers/HomeController.cs" Line="1" Column="1" />
+      <File FileName="tests/AltenCode.Services.Vehicles.Tests/Unit/Services/VehicleServiceTests.cs" Line="1" Column="1" />
       <File FileName="tests/AltenCode.Api.Tests/Integration/HomeControllerTests.cs" Line="27" Column="15" />
       <File FileName="tests/AltenCode.Services.Vehicles.Tests/appsettings.json" Line="1" Column="1" />
       <File FileName="tests/AltenCode.Services.Vehicles.Tests/AltenCode.Services.Vehicles.Tests.csproj" Line="26" Column="11" />
@@ -25,10 +25,9 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Option id="ShowAllFiles" value="True" />
-          <Node name="AltenCode" expanded="True">
-            <Node name="AltenCode.Api" expanded="True">
-              <Node name="appsettings.json" selected="True" />
-            </Node>
+          <Node name="AltenCode" expanded="True" selected="True">
+            <Node name=".git" expanded="True" />
+            <Node name="AltenCode.Api" expanded="True" />
             <Node name="AltenCode.Api.Tests" expanded="True">
               <Node name="Integration" expanded="True" />
             </Node>
@@ -57,7 +56,6 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/zedcrest/Documents/projects/altencode/tests/AltenCode.Services.Vehicles.Tests/Integration/Controllers/HomeControllerTests.cs" relfile="tests/AltenCode.Services.Vehicles.Tests/Integration/Controllers/HomeControllerTests.cs" line="25" column="1" />
       <Breakpoint file="/Users/zedcrest/Documents/projects/altencode/tests/AltenCode.Api.Tests/Integration/HomeControllerTests.cs" relfile="tests/AltenCode.Api.Tests/Integration/HomeControllerTests.cs" line="29" column="1" />
       <Breakpoint file="/Users/zedcrest/Documents/projects/altencode/tests/AltenCode.Api.Tests/Integration/HomeControllerTests.cs" relfile="tests/AltenCode.Api.Tests/Integration/HomeControllerTests.cs" line="17" column="1" />
     </BreakpointStore>
