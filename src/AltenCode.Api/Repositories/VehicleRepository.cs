@@ -25,21 +25,34 @@ namespace AltenCode.Api.Repositories
             => await Collection.InsertOneAsync(vehicle);
 
 
-        public async Task<IEnumerable<Vehicle>> GetAllAsync()
+        public async Task<IList<Vehicle>> GetAllAsync()
             => await Collection
                 .AsQueryable()
                 .ToListAsync();
+
+        public async Task<int> CountAsync()
+            => await Collection
+        .AsQueryable().CountAsync();
+
+        public async Task UpdateAsync(Guid id, Vehicle vehicle)
+        {
+            var result = await Collection.ReplaceOneAsync(x => x.Id == id, vehicle);
+
+        }
+
 
         public async Task<IEnumerable<Vehicle>> BrowseAsync(string customerId, string status)
         {
             var vehicles = await GetAllAsync();
 
-            if(customerId != "All"){
-                vehicles = vehicles.Where(x=>x.CustomerId.ToString() == customerId).ToList();
+            if (customerId != "All")
+            {
+                vehicles = vehicles.Where(x => x.CustomerId.ToString() == customerId).ToList();
             }
 
-            if(status != "All"){
-                vehicles = vehicles.Where(x=>x.Status == status).ToList();
+            if (status != "All")
+            {
+                vehicles = vehicles.Where(x => x.Status == status).ToList();
             }
 
             return vehicles;

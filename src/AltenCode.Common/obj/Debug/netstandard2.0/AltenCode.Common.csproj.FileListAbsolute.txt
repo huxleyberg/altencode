@@ -6,3 +6,4 @@
 /Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/bin/Debug/netstandard2.0/AltenCode.Common.pdb
 /Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.dll
 /Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.pdb
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.csprojAssemblyReference.cache

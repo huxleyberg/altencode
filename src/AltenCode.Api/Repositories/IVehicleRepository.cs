@@ -9,9 +9,10 @@ namespace AltenCode.Api.Repositories
     public interface IVehicleRepository
     {
          Task<Vehicle> GetAsync(Guid id);
-        Task<IEnumerable<Vehicle>> GetAllAsync();
-
+        Task<IList<Vehicle>> GetAllAsync();
+        Task<int> CountAsync();
          Task<IEnumerable<Vehicle>> BrowseAsync(string customerId, string status);
         Task AddAsync(Vehicle vehicle);
+        Task UpdateAsync(Guid id, Vehicle vehicle);
     }
 }

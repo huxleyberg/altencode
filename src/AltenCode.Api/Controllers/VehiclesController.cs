@@ -48,22 +48,30 @@ namespace AltenCode.Api.Controllers
             return Json(vechicles);
         }
 
-        [HttpPost("UpdateVechicleStatus")]
-        public async Task<IActionResult> UpdateVechicleStatus([FromBody]UpdateVehicleStatus command)
+        [HttpPost("ChangeVehicleStatus")]
+        public async Task<IActionResult> ChangeVehicleStatus()
         {
-            // var vehicle = await _vehicleRepository.GetAsync(command.Id);
-            // if (vehicle == null)
-            // {
-            //     return NotFound();
-            // }
-            // command.Id = Guid.NewGuid();
-            // command.UserId = Guid.Parse(User.Identity.Name);
-            // command.CreatedAt = DateTime.UtcNow;
-            // await _busClient.PublishAsync(command);
-            //vehicle.Status = command.Status;
+            //get all the vehicles, select one
+            var vechicles = await _vehicleRepository.GetAllAsync();
+            var count = await _vehicleRepository.CountAsync();
+            var random = new Random();
+            int index = random.Next(count);
+
+            var vehicle = vechicles[index];
+            UpdateVehicleStatus command = new UpdateVehicleStatus();
+            command.VehicleId = Guid.Parse(vehicle?.Id.ToString());
+
+            if(vehicle.Status == "connected"){
+                command.Status = "disconnected";
+            }
+            else{
+                command.Status = "connected";
+            }
+
+
             await _busClient.PublishAsync(command);
 
-            return Accepted($"vehicles/{command.Id}");
+            return Accepted($"vehicles/{command.VehicleId}");
         }
     }
 
