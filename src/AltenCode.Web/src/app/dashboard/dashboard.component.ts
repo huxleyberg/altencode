@@ -3,7 +3,7 @@ import { DashboardService } from "app/services/dashboard.service";
 import { FormControl, FormGroup } from "@angular/forms";
 import { ComponentsModule } from "app/components/components.module";
 import { Observable, Subscription, timer, pipe } from "rxjs";
-import { switchMap } from 'rxjs/operators';
+import { switchMap } from "rxjs/operators";
 
 @Component({
   selector: "app-dashboard",
@@ -11,7 +11,6 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ["./dashboard.component.css"]
 })
 export class DashboardComponent implements OnInit {
-
   public form: FormGroup;
 
   customers: any;
@@ -29,28 +28,21 @@ export class DashboardComponent implements OnInit {
   subscription: Subscription;
   statusText: string;
 
-  constructor(private dashboardService: DashboardService) 
-  {
-    
-  }
+  constructor(private dashboardService: DashboardService) {}
 
   ngOnInit() {
     this.form = new FormGroup({
       customer: new FormControl(""),
       status: new FormControl("")
     });
-   this.initCustomers();
-   this.initVehicles();
+    this.initCustomers();
+    this.initVehicles();
 
-   this.subscription = timer(0, 10000).subscribe(result => console.log("response 123456"));
-}
+    this.subscription = timer(0, 10000).pipe(
+      switchMap(() => this.dashboardService.changeVehicleStatus())
+    ).subscribe(result => this.initVehicles());
 
-  
-
-  
-  
-  
-
+  }
 
   initCustomers() {
     this.dashboardService.getAllCustomers().subscribe(response => {
@@ -66,7 +58,5 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  searchVehicles(){
-    
-  }
+  searchVehicles() {}
 }
