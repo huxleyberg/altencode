@@ -24,6 +24,16 @@ services:
     ports:
       - '5050:5050'
 
+  alten-web:
+    container_name: alten.web
+    build:
+      context: ../src/AltenCode.Web
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '4201:4200'
 
   mongo:
     image: mongo
