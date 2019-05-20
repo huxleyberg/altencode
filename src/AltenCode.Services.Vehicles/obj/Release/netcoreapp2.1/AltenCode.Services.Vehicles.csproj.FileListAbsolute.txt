@@ -1,0 +1,17 @@
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/bin/Release/netcoreapp2.1/AltenCode.Services.Vehicles.deps.json
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/bin/Release/netcoreapp2.1/AltenCode.Services.Vehicles.runtimeconfig.json
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/bin/Release/netcoreapp2.1/AltenCode.Services.Vehicles.runtimeconfig.dev.json
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/bin/Release/netcoreapp2.1/AltenCode.Services.Vehicles.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/bin/Release/netcoreapp2.1/AltenCode.Services.Vehicles.pdb
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/bin/Release/netcoreapp2.1/AltenCode.Common.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/bin/Release/netcoreapp2.1/AltenCode.Common.pdb
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.csprojAssemblyReference.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.csproj.CoreCompileInputs.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.RazorAssemblyInfo.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.RazorAssemblyInfo.cs
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.AssemblyInfoInputs.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.AssemblyInfo.cs
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.RazorTargetAssemblyInfo.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.csproj.CopyComplete
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Services.Vehicles/obj/Release/netcoreapp2.1/AltenCode.Services.Vehicles.pdb

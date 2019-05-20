@@ -1,0 +1,91 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Institution</h4>
+            <p class="card-category">Create Institution</p>
+          </div>
+          <div class="card-body">
+            <!--<button (click)="gotoInstitutions()" mat-raised-button mat-flat-button class="btn-sm" color="warn"> Back</button>-->
+            <button mat-raised-button type="button" matTooltip="Back to List" (click)="gotoInstitutionContacts()" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <mat-spinner style="margin:0 auto;" diameter="25" color="warn" *ngIf="isLoadingResults"></mat-spinner>
+            <div class="row">
+
+              <div class="col-md-1"></div>
+              <div class=" col-md-8">
+                <form [formGroup]="form" novalidate #institutionForm>
+
+
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select placeholder="Institution"
+                                    name="institution" formControlName="institutionId">
+                          <mat-option *ngFor="let institution of institutions"
+                                      [value]="institution.id">
+                            {{institution.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <app-field-error [field]="form.controls.institutionId">
+                        This field is required
+                      </app-field-error>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Fullname" formControlName="fullname"
+                               type="text">
+                      </mat-form-field>
+                      <app-field-error [field]="form.controls.fullname">
+                        This field is required
+                      </app-field-error>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email"
+                               formControlName="email" type="email">
+                      </mat-form-field>
+                      <app-field-error [field]="form.controls.email">
+                        This field is required
+                      </app-field-error>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="PhoneNumber" formControlName="phoneNumber"
+                               type="text">
+                      </mat-form-field>
+                      <app-field-error [field]="form.controls.phoneNumber">
+                        This field is required
+                      </app-field-error>
+                    </div>
+                  </div>
+
+
+
+
+
+
+                  <button mat-raised-button (click)="onSubmit()"
+                          class="btn btn-danger pull-right">Save Institution
+                  </button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

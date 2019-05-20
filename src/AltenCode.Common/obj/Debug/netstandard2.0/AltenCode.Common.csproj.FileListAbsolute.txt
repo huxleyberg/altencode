@@ -1,0 +1,9 @@
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.csprojAssemblyReference.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.csproj.CoreCompileInputs.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.AssemblyInfoInputs.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.AssemblyInfo.cs
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/bin/Debug/netstandard2.0/AltenCode.Common.deps.json
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/bin/Debug/netstandard2.0/AltenCode.Common.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/bin/Debug/netstandard2.0/AltenCode.Common.pdb
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Common/obj/Debug/netstandard2.0/AltenCode.Common.pdb

@@ -1,0 +1,69 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Banks</h4>
+                        <p class="card-category">Create bank</p>
+                    </div>
+                    <div class="card-body">
+                        <!--<button (click)="gotoBanks()" mat-raised-button mat-flat-button class="btn-sm" color="warn"> Back</button>-->
+                        <button mat-raised-button type="button" matTooltip="Back to List" (click)="gotoBanks()" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">arrow_back</i>
+                        </button>
+                        <mat-spinner style="margin:0 auto;" diameter="25" color="warn" *ngIf="isLoadingResults"></mat-spinner>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class=" col-md-6">
+                                <form [formGroup]="form" novalidate>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Bank Name"
+                                                       formControlName="bankName" type="text">
+                                            </mat-form-field>
+                                            <app-field-error [field]="form.controls.bankName">
+                                                This field is required
+                                            </app-field-error>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Bank Code"
+                                                       formControlName="bankCode" type="text">
+                                            </mat-form-field>
+                                            <app-field-error [field]="form.controls.bankCode">
+                                                This field is required
+                                            </app-field-error>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Bank charge" formControlName="bankCharge"
+                                                       type="text">
+                                            </mat-form-field>
+                                            <app-field-error [field]="form.controls.bankCharge">
+                                                This field is required
+                                            </app-field-error>
+                                        </div>
+                                    </div>
+
+
+
+                                    <button  mat-raised-button (click)="onSubmit()"
+                                            class="btn btn-danger pull-right">Save Bank
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

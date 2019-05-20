@@ -1,0 +1,17 @@
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/bin/Release/netcoreapp2.1/AltenCode.Api.deps.json
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/bin/Release/netcoreapp2.1/AltenCode.Api.runtimeconfig.json
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/bin/Release/netcoreapp2.1/AltenCode.Api.runtimeconfig.dev.json
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/bin/Release/netcoreapp2.1/AltenCode.Api.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/bin/Release/netcoreapp2.1/AltenCode.Api.pdb
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/bin/Release/netcoreapp2.1/AltenCode.Common.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/bin/Release/netcoreapp2.1/AltenCode.Common.pdb
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.csprojAssemblyReference.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.csproj.CoreCompileInputs.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.RazorAssemblyInfo.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.RazorAssemblyInfo.cs
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.AssemblyInfoInputs.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.AssemblyInfo.cs
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.RazorTargetAssemblyInfo.cache
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.csproj.CopyComplete
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.dll
+/Users/zedcrest/Documents/projects/altencode/src/AltenCode.Api/obj/Release/netcoreapp2.1/AltenCode.Api.pdb

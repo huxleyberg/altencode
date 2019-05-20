@@ -1,0 +1,272 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-tabs card-header-info">
+                        <div class="nav-tabs-navigation">
+                            <form [formGroup]="form">
+                                <div class="nav-tabs-wrapper">
+                                    <span class="nav-tabs-title">Securities:</span>
+                                    <ul class="nav nav-tabs" data-tabs="tabs">
+                                        <li class="nav-item">
+                                            <a (click)="treasuryMenuSelected()" mat-button class="nav-link active" href="#treasury" data-toggle="tab">
+                                                <i class="material-icons">folder</i> Treasury Bills
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a (click)="bondsMenuselected()" mat-button class="nav-link" href="#bonds" data-toggle="tab">
+                                                <i class="material-icons">subtitles</i> Bonds
+                                                <div class="ripple-container"></div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" style="margin-left: 30px">
+                                            <mat-form-field>
+                                                <input matInput name="dateFromDatePicker" style="color: white"
+                                                       formControlName="dateFromDatePicker"
+                                                       [matDatepicker]="dateFromDatePicker"
+                                                       placeholder="Date From">
+                                                <mat-datepicker-toggle matSuffix style="color: white;"
+                                                                       [for]="dateFromDatePicker"></mat-datepicker-toggle>
+                                                <mat-datepicker #dateFromDatePicker></mat-datepicker>
+                                            </mat-form-field>
+                                        </li>
+                                        <li class="nav-item" style="margin-left: 30px">
+                                            <mat-form-field>
+                                                <input matInput name="dateToDatePicker" style="color: white"
+                                                       formControlName="dateToDatePicker"
+                                                       [matDatepicker]="dateToDatePicker"
+                                                       placeholder="Date To">
+                                                <mat-datepicker-toggle matSuffix style="color: white;"
+                                                                       [for]="dateToDatePicker"></mat-datepicker-toggle>
+                                                <mat-datepicker #dateToDatePicker></mat-datepicker>
+                                            </mat-form-field>
+                                        </li>
+                                        <li class="nav-item" style="margin-left: 30px">
+                                            <mat-form-field>
+                                                <mat-select
+                                                            placeholder="Instrument"
+                                                            name="instrument" formControlName="instrument">
+                                                    <mat-option value="0">All</mat-option>
+                                                    <mat-option *ngFor="let instrument of instruments"
+                                                                [value]="instrument.id">
+                                                        {{instrument.name}}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </li>
+                                        <li class="nav-item" style="margin-top: 5px;margin-left: 10px;color: white">
+                                            <button (click)="searchBlotter()" mat-raised-button mat-icon-button type="button"   class="btn btn-danger btn-link btn-just-icon">
+                                                <i class="material-icons">search</i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="treasury">
+                                <table class="table">
+                                    <thead class="text-info">
+                                    <th>Trade Reference</th>
+                                    <th>Settlement Bank</th>
+                                    <th>Trade Date</th>
+                                    <th>Settlement Date</th>
+                                    <th>Maturity</th>
+                                    <th>Discount Rate</th>
+                                    <th>Volume</th>
+                                    <th>Consideration</th>
+                                    <th>Charges</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let purchasedTBill of purchasedTreasuryBills">
+                                        <td>{{purchasedTBill.tradeReferenceId}}</td>
+                                        <td>{{purchasedTBill.settlementBankName}}</td>
+                                        <td>{{purchasedTBill.tradeDate | date}}</td>
+                                        <td>{{purchasedTBill.settlementDate | date}}</td>
+                                        <td>{{purchasedTBill.maturityDate | date}}</td>
+                                        <td>{{purchasedTBill.discountRate}}</td>
+                                        <td>{{purchasedTBill.volume}}</td>
+                                        <td>{{purchasedTBill.consideration | number : '1.2-2'}}</td>
+                                        <td>{{purchasedTBill.calculatedBankCharges | number : '1.2-2'}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon ">
+
+                                                <p class="card-category float-left"><b>TOTAL PURCHASE CONSIDERATION</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{tPurchaseConsideration | number : '1.2-2'}}</h3>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table">
+                                    <thead class="text-info">
+                                    <th>Trade Reference</th>
+                                    <th>Settlement Bank</th>
+                                    <th>Trade Date</th>
+                                    <th>Settlement Date</th>
+                                    <th>Maturity</th>
+                                    <th>Discount Rate</th>
+                                    <th>Volume</th>
+                                    <th>Consideration</th>
+                                    <th>Charges</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let soldTbill of soldTreasuryBills">
+                                        <td>{{soldTbill.tradeReferenceId}}</td>
+                                        <td>{{soldTbill.settlementBankName}}</td>
+                                        <td>{{soldTbill.tradeDate | date}}</td>
+                                        <td>{{soldTbill.settlementDate | date}}</td>
+                                        <td>{{soldTbill.maturityDate | date}}</td>
+                                        <td>{{soldTbill.discountRate}}</td>
+                                        <td>{{soldTbill.volume}}</td>
+                                        <td>{{soldTbill.consideration | number : '1.2-2'}}</td>
+                                        <td>{{soldTbill.calculatedBankCharges | number : '1.2-2'}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon ">
+                                                <p class="card-category float-left"><b>TOTAL SALES CONSIDERATION</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{tSalesConsideration | number : '1.2-2'}}</h3>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon">
+                                                <p class="card-category float-left"><b>TOTAL CHARGES</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{tTotalCharges | number : '1.2-2'}}</h3>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon">
+                                                <p class="card-category float-left"><b>NET REVENUE</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{tRevenue | number : '1.2-2'}}</h3>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="bonds">
+                                <table class="table">
+                                    <thead class="text-info">
+                                    <th>Trade Reference</th>
+                                    <th>Settlement Bank</th>
+                                    <th>Trade Date</th>
+                                    <th>Settlement Date</th>
+                                    <th>Maturity</th>
+                                    <th>Price</th>
+                                    <th>Yield</th>
+                                    <th>Volume</th>
+                                    <th>Consideration</th>
+                                    <th>Charges</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let purchasedBond of purchasedBonds">
+                                        <td>{{purchasedBond.tradeReferenceId}}</td>
+                                        <td>{{purchasedBond.settlementBankName}}</td>
+                                        <td>{{purchasedBond.tradeDate | date}}</td>
+                                        <td>{{purchasedBond.settlementDate | date}}</td>
+                                        <td>{{purchasedBond.maturityDate | date}}</td>
+                                        <td>{{purchasedBond.bondPrice | number : '1.2-2'}}</td>
+                                        <td>{{purchasedBond.desiredYield | number : '1.2-4'}}</td>
+                                        <td>{{purchasedBond.volume}}</td>
+                                        <td>{{purchasedBond.consideration | number : '1.2-2'}}</td>
+                                        <td>{{purchasedBond.calculatedBankCharges | number : '1.2-2'}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon">
+                                                <p class="card-category float-left"><b>TOTAL PURCHASE CONSIDERATION</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{bPurchaseConsideration | number : '1.2-2'}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <table class="table">
+                                    <thead class="text-info">
+                                    <th>Trade Reference</th>
+                                    <th>Settlement Bank</th>
+                                    <th>Trade Date</th>
+                                    <th>Settlement Date</th>
+                                    <th>Maturity</th>
+                                    <th>Price</th>
+                                    <th>Yield</th>
+                                    <th>Volume</th>
+                                    <th>Consideration</th>
+                                    <th>Charges</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let soldBond of soldBonds">
+                                        <td>{{soldBond.tradeReferenceId}}</td>
+                                        <td>{{soldBond.settlementBankName}}</td>
+                                        <td>{{soldBond.tradeDate | date}}</td>
+                                        <td>{{soldBond.settlementDate | date}}</td>
+                                        <td>{{soldBond.maturityDate | date}}</td>
+                                        <td>{{soldBond.bondPrice | number : '1.2-2'}}</td>
+                                        <td>{{soldBond.desiredYield | number : '1.2-4'}}</td>
+                                        <td>{{soldBond.volume}}</td>
+                                        <td>{{soldBond.consideration | number : '1.2-2'}}</td>
+                                        <td>{{soldBond.calculatedBankCharges | number : '1.2-2'}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon ">
+                                                <p class="card-category float-left"><b>TOTAL SALES CONSIDERATION</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{bSalesConsideration | number : '1.2-2'}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon ">
+                                                <p class="card-category float-left"><b>TOTAL CHARGES</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{bTotalCharges | number : '1.2-2'}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="card card-stats">
+                                            <div class="card-header card-header-success card-header-icon ">
+                                                <p class="card-category float-left"><b>NET REVENUE</b></p><br>
+                                                <h3 class="card-title float-left">NGN {{bRevenue | number : '1.2-2'}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

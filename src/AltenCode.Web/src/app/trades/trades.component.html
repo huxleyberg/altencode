@@ -1,0 +1,83 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Trades</h4>
+                        <p class="card-category"></p>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <button mat-raised-button type="button" matTooltip="Add Trade" (click)="addTrade()" [matTooltipPosition]="'above'"
+                                class="btn btn-danger btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">add</i>
+                        </button>
+
+                        <!--<mat-spinner diameter="25" color="warn" style="margin: 0" ></mat-spinner>-->
+                        <div class="example-loading-shade"
+                             *ngIf="isLoadingResults">
+                            <mat-spinner diameter="25" color="warn" *ngIf="isLoadingResults"></mat-spinner>
+                        </div>
+
+                        <table class="table">
+                            <thead class="text-rose">
+
+                            <th>Transaction Reference</th>
+                            <th>Trade Type</th>
+                            <th>Trade Date</th>
+                            <th>Settlement Date</th>
+                            <th>Purchase Date</th>
+                            <th>Volume</th>
+                            <th>Price</th>
+                            <!--<th>Yield</th>-->
+                            <th>Norminal Amount</th>
+                            <th>Modified Duration</th>
+                            <th>Desired Yield</th>
+                            <th>Bond Price</th>
+                            <th>Consideration</th>
+                            <th>Charges</th>
+                            <th>Maturity Date</th>
+
+                            <th></th>
+
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let trade of trades">
+
+
+                                <td><a [routerLink]="['/create-trade/', trade.id]">{{trade.tradeReferenceId}}</a></td>
+                                <td>{{trade.tradeType}}</td>
+                                <td>{{trade.tradeDate | date}}</td>
+                                <td>{{trade.settlementDate | date}}</td>
+                                <td>{{trade.purchaseDate | date}}</td>
+                                <td>{{trade.volume | number : '1.0' }}</td>
+                                <td>{{trade.Price }}</td>
+                                <td>{{trade.norminalAmount | number : '1.2-2' }}</td>
+                                <td>{{trade.modifiedDuration | number : '1.2-2' }}</td>
+                                <td>{{trade.desiredYield | number : '1.2-2' }}</td>
+                                <td>{{trade.bondPrice | number : '1.2-2' }}</td>
+                                <td>{{trade.consideration | number : '1.2-2' }}</td>
+                                <td>{{trade.calculatedBankCharges | number : '1.2-2' }}</td>
+                                <td>{{trade.maturityDate | date}}</td>
+
+                                <td class="td-actions text-right">
+                                    <!--<a [routerLink]="['/edit-trade/', trade.tradeReferenceId]" mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">-->
+                                        <!--<i class="material-icons">edit</i>-->
+                                    <!--</a>-->
+                                    <!--<button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">-->
+                                        <!--<i class="material-icons">close</i>-->
+                                    <!--</button>-->
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

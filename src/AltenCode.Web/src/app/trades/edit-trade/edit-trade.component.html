@@ -1,0 +1,428 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Trade</h4>
+            <p class="card-category">Enter trade details</p>
+          </div>
+          <div class="card-body">
+            <button mat-raised-button type="button" matTooltip="Registered Trades" (click)="displayTrades()" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+              <i class="material-icons">arrow_back</i>
+            </button>
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class=" col-md-8">
+                <form [formGroup]="form" novalidate>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select (selectionChange)="checkInstrumentSelected()"
+                                    placeholder="Select Instrument Type"
+                                    name="instrumentTypeId" formControlName="instrumentTypeId">
+                          <mat-option *ngFor="let instrument of instrumentTypes"
+                                      [value]="instrument.id">
+                            {{instrument.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select formControlName="tradeType"
+                                    (selectionChange)="toggleLineBuyAndSell()"
+                                    placeholder="Trade Type"
+                                    name="tradeType">
+                          <mat-option *ngFor="let tradingType of tradeType"
+                                      [value]="tradingType.name">
+                            {{tradingType.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select (selectionChange)="toggleLineBuyAndSell()"
+                                    placeholder="Transaction Type"
+                                    formControlName="SelectedTransactionType"
+                                    name="transactionType">
+                          <mat-option *ngFor="let transactionType of transactionTypes"
+                                      [value]="transactionType.name">
+                            {{transactionType.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select (selectionChange)="setInstrumentSelected()"
+                                    placeholder="Instrument"
+                                    name="instrument" formControlName="instrument">
+                          <mat-option *ngFor="let instrument of instruments"
+                                      [value]="instrument">
+                            {{instrument.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select placeholder="Institution"
+                                    name="institution" formControlName="institutionId">
+                          <mat-option *ngFor="let institution of institutions"
+                                      [value]="institution.id">
+                            {{institution.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select (selectionChange)="settlementBankChanged()"
+                                    formControlName="settlementBank"
+                                    placeholder="Settlement Bank"
+                                    name="bank">
+                          <mat-option *ngFor="let bank of banks" [value]="bank">
+                            {{bank.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+
+                    <!--<div class="col-md-6" *ngIf="isTransactionTypeNormal">-->
+                    <!--<mat-form-field class="example-full-width">-->
+                    <!--<input matInput placeholder="Bank Charges"-->
+                    <!--formControlName="totalBankCharges"-->
+                    <!--type="number">-->
+                    <!--</mat-form-field>-->
+                    <!--</div>-->
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Volume" formControlName="volume"
+                               type="number"  >
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6" *ngIf="!isTransactionTypeNormal">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Funding Cost Charges"
+                               name="totalFundingCostCharges"
+                               formControlName="totalFundingCostCharges" type="number">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="row"
+                           *ngIf="form.controls['instrumentTypeId'].value === 1 || form.controls['instrumentTypeId'].value === ''">
+                        <div class="col-md-12" *ngIf="isTradeTypeBuy">
+                          <mat-form-field>
+                            <input matInput name="purchaseDate"
+                                   formControlName="purchaseDate"
+                                   [matDatepicker]="purchaseDatePicker"
+                                   placeholder="Purchase Date">
+                            <mat-datepicker-toggle matSuffix
+                                                   [for]="purchaseDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #purchaseDatePicker></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-12" *ngIf="!isTradeTypeBuy">
+                          <mat-form-field>
+                            <input matInput name="settlementDate"
+                                   formControlName="settlementDate"
+                                   [matDatepicker]="settlementDatePicker"
+                                   placeholder="Settlement Date">
+                            <mat-datepicker-toggle matSuffix
+                                                   [for]="settlementDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #settlementDatePicker></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row" *ngIf="form.controls['instrumentTypeId'].value === 2">
+                        <div class="col-md-12">
+                          <mat-form-field>
+                            <input matInput name="settlementDate"
+                                   formControlName="settlementDate"
+                                   [matDatepicker]="settlementDatePicker"
+                                   placeholder="Settlement Date">
+                            <mat-datepicker-toggle matSuffix
+                                                   [for]="settlementDatePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #settlementDatePicker></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <input matInput name="tradeDate" formControlName="tradeDate"
+                               [matDatepicker]="tradeDatePicker"
+                               placeholder="Trade Date">
+                        <mat-datepicker-toggle matSuffix
+                                               [for]="tradeDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #tradeDatePicker></mat-datepicker>
+                      </mat-form-field>
+
+                    </div>
+
+                  </div>
+
+
+
+
+
+                  <div class="row" *ngIf="isBonds">
+                    <div class="col-md-6">
+                      <mat-form-field>
+                        <mat-select (selectionChange)="checkPriceOrYieldSelected()"
+                                    placeholder="Select Price or Yield"
+                                    formControlName="priceOrYieldSelected">
+                          <mat-option *ngFor="let type of bondCalculationTypes"
+                                      [value]="type.id">
+                            {{type.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6" *ngIf="isBondPriceSelected">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Enter Price"
+                               formControlName="bondPrice"
+                               type="number">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6" *ngIf="isBondYieldSelcted">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Enter Yield" formControlName="bondYield"
+                               type="number">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <!--<div class="col-md-6">-->
+                    <!--<mat-form-field class="example-full-width">-->
+                    <!--<input matInput placeholder="Volume" formControlName="volume"-->
+                    <!--type="number">-->
+                    <!--</mat-form-field>-->
+                    <!--</div>-->
+                    <!--<mat-spinner value="2"  diameter="20" color="warn"></mat-spinner>-->
+                    <div class="col-md-5" *ngIf="isTransactionTypeNormal">
+                      <mat-form-field class="example-full-width">
+
+                        <input matInput placeholder="Bank Charges (*auto-calculated)"
+                               formControlName="totalBankCharges"
+                               type="number"  [readonly]="isBankChargesReadOnly">
+
+
+                      </mat-form-field>
+
+
+                      <!--<mat-form-field>-->
+                      <!--<mat-placeholder>Search reports</mat-placeholder>-->
+                      <!--<input matInput type="search">-->
+                      <!--<button mat-button  mat-stroked-button aria-label="search">-->
+                      <!--<mat-icon>search</mat-icon>-->
+                      <!--</button>-->
+                      <!--</mat-form-field>-->
+                    </div>
+                    <div class="col-md-1" *ngIf="isTransactionTypeNormal">
+                      <button mat-raised-button type="button" matTooltip="Edit Bank Charges" (click)="toggleBankChargeField()" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                        <i class="material-icons" *ngIf="isBankChargesReadOnly">lock</i>
+                        <i class="material-icons" *ngIf="!isBankChargesReadOnly">lock_open</i>
+                      </button>
+                    </div>
+
+                    <div class="col-md-6" *ngIf="isTreasuryBills">
+                      <mat-form-field class="example-full-width">
+
+                        <input matInput placeholder="Discount Rate (Price)"
+                               formControlName="discountRate"
+                               type="number">
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <!--<div class="row">-->
+                  <!--<div class="col-md-6">-->
+                  <!--<mat-form-field>-->
+                  <!--<input matInput name="tradeDate" formControlName="tradeDate"-->
+                  <!--[matDatepicker]="tradeDatePicker"-->
+                  <!--placeholder="Trade Date">-->
+                  <!--<mat-datepicker-toggle matSuffix-->
+                  <!--[for]="tradeDatePicker"></mat-datepicker-toggle>-->
+                  <!--<mat-datepicker #tradeDatePicker></mat-datepicker>-->
+                  <!--</mat-form-field>-->
+
+                  <!--</div>-->
+
+                  <!--</div>-->
+
+
+                  <div class="row" *ngFor="let tradingstock of selectedTradingStocks">
+                    <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                        <input disabled matInput placeholder="Trading Stock" type="text"
+                               [value]="tradingstock.displayname">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width">
+                        <input disabled matInput placeholder="Trade Stock Volume" type="number"
+                               [value]="tradingstock.volume">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                      <mat-form-field class="example-full-width">
+                        <input disabled matInput placeholder="Funding Cost" type="number"
+                               [value]="tradingstock.fundingCost">
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-3">
+                      <button (click)="removeSelectedTradingStock(tradingstock)" mat-raised-button
+                              class="btn btn-sm btn-outline-secondary pull-right">Remove
+                      </button>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+
+                  <div class="row" *ngIf="addInstrumentOfTradeIsVisible">
+                    <div class="col-md-12">
+                      <!--<p>Select Instrument of Trade</p>-->
+                      <button (click)="showTradingStock()" mat-raised-button
+                              class="btn btn-sm btn-outline-info pull-left">Add instrument of
+                        trade
+                      </button>
+                    </div>
+                  </div>
+
+                  <div class="row" *ngIf="tradeStockToggle">
+                    <div class="col-md-4">
+                      <mat-form-field>
+                        <mat-select placeholder="Select Line Trade"
+                                    formControlName="lineTradeSelected"
+                                    name="lineTradeSelected">
+                          <mat-option *ngFor="let tradeStock of tradingstocks"
+                                      [value]="tradeStock.displayname">
+                            {{tradeStock.displayname}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-3">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Trade Stock Volume" name="lineTradeVolume"
+                               formControlName="lineTradeVolume" type="number">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Funding Cost" name="lineFundingCost"
+                               formControlName="lineFundingCost" type="number">
+                      </mat-form-field>
+                    </div>
+
+                    <div class="col-md-3">
+                      <button (click)="hideTradingStock()" mat-raised-button
+                              class="btn btn-sm btn-outline-secondary pull-right">Cancel
+                      </button>
+                      <button (click)="addTradeStock()" mat-raised-button
+                              class="btn btn-sm btn-outline-secondary pull-right">Save
+                      </button>
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row" *ngIf="isTreasuryBills">
+                    <div class="col-md-12">
+                      <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead>
+                          <th>Purchase Consideration</th>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td>
+                              {{ consideration | number : '1.2-2' }}
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="isBonds">
+                    <div class="col-md-12">
+                      <div class="table-responsive">
+                        <table class="table table-hover">
+                          <thead>
+                          <th>Bond Price (Clean)</th>
+                          <th>Yield</th>
+                          <th>Accurred Interest</th>
+                          <th>Dirty Price</th>
+                          <th>Purchase Consideration</th>
+                          <th>Modified Duration</th>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td>
+                              <b>{{bondsCalculationOutputModel.price | number : '1.2-2'}}</b>
+                            </td>
+                            <td>
+                              <b>{{bondsCalculationOutputModel.yield| number : '1.2-2'}}</b>
+                            </td>
+                            <td>
+                              <b>{{bondsCalculationOutputModel.accuredInterest | number : '1.2-2'}}</b>
+                            </td>
+                            <td>
+                              <b>{{bondsCalculationOutputModel.dirtyPrice | number : '1.2-2'}}</b>
+                            </td>
+                            <td>
+                              <b>{{bondsCalculationOutputModel.purchaseConsideration | number : '1.2-2'}}</b>
+                            </td>
+                            <td>
+                              <b>{{bondsCalculationOutputModel.modifiedDuration | number : '1.2-2'}}</b>
+                            </td>
+                          </tr>
+
+
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button mat-raised-button (click)="calculateTradeEarnings()"
+                          class="btn btn-info pull-left">Calculate Trade Earnings
+                  </button>
+                  <button mat-raised-button (click)="onTradeFormSubmit()"
+                          class="btn btn-danger pull-right">Create Trade
+                  </button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
