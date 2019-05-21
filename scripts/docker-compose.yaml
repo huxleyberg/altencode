@@ -33,16 +33,15 @@ services:
 
   rabbitmq:
     image: rabbitmq:3.6.5-management
-    command: docker pull rabbitmq
     ports:
       - '5672:5672'
       - '15672:15672'
 
-  alten-web:
-    container_name: alten.web
-    build: ../src/AltenCode.Web
-    volumes:
-      - '../src/AltenCode.Web:/app'
-    ports:
-      - '4200:4200'
+  # alten-web:
+  #   container_name: alten.web
+  #   build: ../src/AltenCode.Web
+  #   volumes:
+  #     - '../src/AltenCode.Web:/app'
+  #   ports:
+  #     - '4200:4200'
     
