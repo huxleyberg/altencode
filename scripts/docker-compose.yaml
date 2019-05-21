@@ -26,14 +26,13 @@ services:
 
   alten-web:
     container_name: alten.web
-    build:
-      context: ../src/AltenCode.Web
-      dockerfile: Dockerfile
+    build: ../src/AltenCode.Web
     volumes:
-      - '.:/app'
-      - '/app/node_modules'
+      - '../src/AltenCode.Web:/app'
     ports:
-      - '4201:4200'
+      - '4200:4200'
+    command: >
+        bash -c "npm uninstall --save node-sass && npm install --save node-sass && npm rebuild node-sass --force && npm install && ng serve --host 0.0.0.0 --port 4200"
 
   mongo:
     image: mongo

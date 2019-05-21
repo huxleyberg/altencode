@@ -1,0 +1,11 @@
+.DS_Store
+.git
+.gitignore
+.idea
+log/*
+target
+tmp
+node_modules
+client/node_modules
+spec/internal/public/assets
+public/assets

@@ -18,7 +18,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-lg-12 col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header card-header-tabs card-header-info\">\n            <div class=\"nav-tabs-navigation\">\n              <!-- <form [formGroup]=\"form\"> -->\n                <form>\n                <div class=\"nav-tabs-wrapper\">\n                  <span class=\"nav-tabs-title\">Vechicles Status:</span>\n                  <ul class=\"nav nav-tabs\" data-tabs=\"tabs\">\n                    <li class=\"nav-item\">\n                      <a\n                        mat-button\n                        class=\"nav-link active\"\n                        href=\"#treasury\"\n                        data-toggle=\"tab\"\n                      >\n                        <i class=\"material-icons\">folder</i> Overview\n                        <div class=\"ripple-container\"></div>\n                      </a>\n                    </li>\n\n                    <!-- <li class=\"nav-item\" style=\"margin-left: 30px\">\n                      <mat-form-field>\n                        <mat-select\n                          placeholder=\"Customer\"\n                          name=\"customer\"\n                          formControlName=\"customer\"\n                        >\n                          <mat-option value=\"All\">All</mat-option>\n                          <mat-option\n                            *ngFor=\"let customer of customers\"\n                            [value]=\"customer.id\"\n                          >\n                            {{ customer.name }}\n                          </mat-option>\n                        </mat-select>\n                      </mat-form-field>\n                    </li> -->\n\n                    <!-- <li class=\"nav-item\" style=\"margin-left: 30px\">\n                      <mat-form-field>\n                        <mat-select\n                          placeholder=\"Status\"\n                          name=\"status\"\n                          formControlName=\"status\"\n                        >\n                          <mat-option value=\"All\">All</mat-option>\n                          <mat-option\n                            *ngFor=\"let item of status_types\"\n                            [value]=\"item.id\"\n                          >\n                            {{ item.name }}\n                          </mat-option>\n                        </mat-select>\n                      </mat-form-field>\n                    </li> -->\n\n                    <li\n                      class=\"nav-item\"\n                      style=\"margin-top: 5px;margin-left: 10px;color: white\"\n                    >\n                      <button\n                        (click)=\"searchVehicles()\"\n                        mat-raised-button\n                        mat-icon-button\n                        type=\"button\"\n                        class=\"btn btn-danger btn-link btn-just-icon\"\n                      >\n                        <i class=\"material-icons\">search</i>\n                      </button>\n                    </li>\n                  </ul>\n                </div>\n              </form>\n            </div>\n          </div>\n          <div class=\"card-body\">\n            <div class=\"tab-content\">\n              <div class=\"tab-pane active\" id=\"vehicles\">\n                <table class=\"table\">\n                  <thead class=\"text-info\">\n                    <th>id</th>\n                    <th>vin</th>\n                    <th>regNo</th>\n                    <th>customerName</th>\n                    <th>status</th>\n                    <th>customerAddress</th>\n                  </thead>\n                  <tbody>\n                    <tr *ngFor=\"let vehicle of vehicles\">\n                      <td>{{ vehicle.id }}</td>\n                      <td>{{ vehicle.vin }}</td>\n                      <td>{{ vehicle.regNo }}</td>\n                      <td>{{ vehicle.customerName }}</td>\n                      <td>{{ vehicle.status }}</td>\n                      <td>{{ vehicle.customerAddress }}</td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"main-content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-lg-12 col-md-12\">\n        <div class=\"card\">\n          <div class=\"card-header card-header-tabs card-header-info\">\n            <div class=\"nav-tabs-navigation\">\n              <form [formGroup]=\"form\">\n                <!-- <form> -->\n                <div class=\"nav-tabs-wrapper\">\n                  <span class=\"nav-tabs-title\">Vechicles Status:</span>\n                  <ul class=\"nav nav-tabs\" data-tabs=\"tabs\">\n                    <li class=\"nav-item\">\n                      <a\n                        mat-button\n                        class=\"nav-link active\"\n                        href=\"#treasury\"\n                        data-toggle=\"tab\"\n                      >\n                        <i class=\"material-icons\">folder</i> Overview\n                        <div class=\"ripple-container\"></div>\n                      </a>\n                    </li>\n\n                    <li class=\"nav-item\" style=\"margin-left: 30px\">\n                      <mat-form-field>\n                        <mat-select\n                          placeholder=\"Customer\"\n                          name=\"customer\"\n                          formControlName=\"customer\"\n                        >\n                          <mat-option value=\"All\">All</mat-option>\n                          <mat-option\n                            *ngFor=\"let customer of customers\"\n                            [value]=\"customer.id\"\n                          >\n                            {{ customer.name }}\n                          </mat-option>\n                        </mat-select>\n                      </mat-form-field>\n                    </li>\n\n                    <li class=\"nav-item\" style=\"margin-left: 30px\">\n                      <mat-form-field>\n                        <mat-select\n                          placeholder=\"Status\"\n                          name=\"status\"\n                          formControlName=\"status\"\n                        >\n                          <mat-option value=\"All\">All</mat-option>\n                          <mat-option\n                            *ngFor=\"let item of status_types\"\n                            [value]=\"item.id\"\n                          >\n                            {{ item.name }}\n                          </mat-option>\n                        </mat-select>\n                      </mat-form-field>\n                    </li>\n\n                    <li\n                      class=\"nav-item\"\n                      style=\"margin-top: 5px;margin-left: 10px;color: white\"\n                    >\n                      <button\n                        (click)=\"searchVehicles()\"\n                        mat-raised-button\n                        mat-icon-button\n                        type=\"button\"\n                        class=\"btn btn-danger btn-link btn-just-icon\"\n                      >\n                        <i class=\"material-icons\">search</i>\n                      </button>\n                    </li>\n                  </ul>\n                </div>\n              </form>\n            </div>\n          </div>\n          <div class=\"card-body\">\n            <div class=\"tab-content\">\n              <div class=\"tab-pane active\" id=\"vehicles\">\n                <table class=\"table\">\n                  <thead class=\"text-info\">\n                    <th>id</th>\n                    <th>vin</th>\n                    <th>regNo</th>\n                    <th>customerName</th>\n                    <th>status</th>\n                    <th>customerAddress</th>\n                  </thead>\n                  <tbody>\n                    <tr *ngFor=\"let vehicle of vehicles\">\n                      <td>{{ vehicle.id }}</td>\n                      <td>{{ vehicle.vin }}</td>\n                      <td>{{ vehicle.regNo }}</td>\n                      <td>{{ vehicle.customerName }}</td>\n                      <td>{{ vehicle.status }}</td>\n                      <td>{{ vehicle.customerAddress }}</td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -36,6 +36,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var app_services_dashboard_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! app/services/dashboard.service */ "./src/app/services/dashboard.service.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+
+
 
 
 
@@ -55,12 +59,16 @@ var DashboardComponent = /** @class */ (function () {
         ];
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.form = new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormGroup"]({
             customer: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"](""),
             status: new _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormControl"]("")
         });
         this.initCustomers();
         this.initVehicles();
+        this.subscription = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["timer"])(0, 10000)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["switchMap"])(function () { return _this.dashboardService.changeVehicleStatus(); }))
+            .subscribe(function (result) { return _this.initVehicles(); });
     };
     DashboardComponent.prototype.initCustomers = function () {
         var _this = this;
@@ -77,6 +85,15 @@ var DashboardComponent = /** @class */ (function () {
         });
     };
     DashboardComponent.prototype.searchVehicles = function () {
+        var _this = this;
+        var customer = this.form.controls["customer"].value;
+        var status = this.form.controls["status"].value;
+        this.dashboardService
+            .searchVehicles(customer, status)
+            .subscribe(function (response) {
+            _this.vehicles = response;
+            console.log(response);
+        });
     };
     DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -109,6 +126,7 @@ var api_routes = {
     GET_ALL_CUSTOMERS: _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].api_base_url + '/customers',
     SEARCH: _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].api_base_url + '/vehicles/',
     GET_ALL_VEHICLES: _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].api_base_url + '/vehicles',
+    CHANGE_VEHICLE_STATUS: _environments_environment__WEBPACK_IMPORTED_MODULE_0__["environment"].api_base_url + '/vehicles/ChangeVehicleStatus',
 };
 
 
@@ -613,6 +631,9 @@ var DashboardService = /** @class */ (function () {
         var requestUrl = "search/customer/" + customerId + "/status/" + status;
         console.log(app_helpers_env_endpoints__WEBPACK_IMPORTED_MODULE_3__["api_routes"].SEARCH + requestUrl);
         return this.http.get(app_helpers_env_endpoints__WEBPACK_IMPORTED_MODULE_3__["api_routes"].SEARCH + requestUrl);
+    };
+    DashboardService.prototype.changeVehicleStatus = function () {
+        return this.http.post(app_helpers_env_endpoints__WEBPACK_IMPORTED_MODULE_3__["api_routes"].CHANGE_VEHICLE_STATUS, this.httpOptions);
     };
     DashboardService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
