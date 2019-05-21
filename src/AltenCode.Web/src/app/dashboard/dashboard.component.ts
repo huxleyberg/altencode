@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { DashboardService } from "app/services/dashboard.service";
 import { FormControl, FormGroup } from "@angular/forms";
-import { ComponentsModule } from "app/components/components.module";
-import { Observable, Subscription, timer, pipe } from "rxjs";
+import {  Subscription, timer, pipe } from "rxjs";
 import { switchMap } from "rxjs/operators";
+import { DashboardService } from "app/services/dashboard.service";
 
 @Component({
   selector: "app-dashboard",
