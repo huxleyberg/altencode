@@ -33,7 +33,7 @@ services:
 
   rabbitmq:
     image: rabbitmq:3.6.5-management
-    command: rabbitmq-server
+    command: docker pull rabbitmq
     ports:
       - '5672:5672'
       - '15672:15672'
