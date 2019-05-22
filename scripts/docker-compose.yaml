@@ -7,6 +7,12 @@ services:
       - mongo
       - rabbitmq
     command: rabbitmq:5672
+    
+  altencode-web:
+    container_name: altencode.web
+    build: ../src/altencode-angular
+    ports:
+      - 80:80
 
   api:
     build: ../src/AltenCode.Api
@@ -36,6 +42,8 @@ services:
     ports:
       - '5672:5672'
       - '15672:15672'
+
+  
 
   # alten-web:
   #   container_name: alten.web
